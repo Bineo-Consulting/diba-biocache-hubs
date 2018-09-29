@@ -123,14 +123,24 @@
                     attribution: "${grailsApplication.config.map.overlay.name?:'overlay'}"
                 }),
             </g:if>
-            "Áreas protegidas" :  L.tileLayer.wms("http://sitmun.diba.cat/wms/servlet/XPE50", {
+            "Hàbitats CORINE" :  L.tileLayer.wms("http://sitmun.diba.cat/wms/servlet/XPE50", {
                     layers: 'XPE50_211A',
                     format: 'image/png',
                     transparent: true,
                     attribution: "Diputación Barcelona"
-                })
-
-
+                }),
+            "Xarxa de Parcs Naturals DiBa" :  L.tileLayer.wms("http://sitmun.diba.cat/wms/servlet/XPE50", {
+                    layers: 'XPE50_111L',
+                    format: 'image/png',
+                    transparent: true,
+                    attribution: "Diputación Barcelona"
+                }),
+            "Límits plans especials de protecció" :  L.tileLayer.wms("http://sitmun.diba.cat/wms/servlet/XPE50", {
+                    layers: 'XPE50_111A',
+                    format: 'image/png',
+                    transparent: true,
+                    attribution: "Diputación Barcelona"
+                })                           
         },
         baseLayers : {
             "Minimal" : defaultBaseLayer,
