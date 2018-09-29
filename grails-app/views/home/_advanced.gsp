@@ -24,7 +24,7 @@
         </div>
     </g:each>
 
-    <h4 class="margin-bottom-half-1">Hola David!!!<g:message code="advancedsearch.allfields.title" default="Find records that specify the following fields"/></h4>
+    <h4 class="margin-bottom-half-1"><g:message code="advancedsearch.allfields.title" default="Find records that specify the following fields"/></h4>
     <div class="form-group">
         <label class="col-md-2 control-label" for="raw_taxon_name"><g:message code="advancedsearch.table03col01.title" default="Raw Scientific Name"/></label>
         <div class="col-md-6">
