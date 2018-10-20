@@ -141,13 +141,13 @@
                     transparent: true,
                     attribution: "Diputación Barcelona"
                 }),
-            "Cartografía oficial del ICC": L.tileLayer.wms("http://geoserveis.icc.cat/icc_mapesbase/wms/service?SRS=EPSG:23031", {
-                    layers: 'mtc50m',
+            "Cartografía oficial del ICC": L.tileLayer.wms("http://geoserveis.icc.cat/icc_mapesbase/wms/service?SRS=EPSG:3857", {
+                    layers: 'orto25m',
                     format: 'image/png',
                     transparent: true,
                     attribution: "ICC"
                 }),
-            "Límites de los parques naturales de la Generalitat": L.tileLayer.wms("http://sig.gencat.cat/ows/ESPAIS_NATURALS/wms?SRS=EPSG:25031", {
+            "Límites de los parques naturales de la Generalitat": L.tileLayer.wms("https://sig.gencat.cat/ows/ESPAIS_NATURALS/wms?SRS=EPSG:3857", {
                     layers: 'ESPAISNATURALS_ENPE',
                     format: 'image/png',
                     transparent: true,

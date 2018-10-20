@@ -81,9 +81,9 @@ function loadWMS(map, baseURL, customParams){
         "BGCOLOR=0xFFFFFF",
         "TRANSPARENT=TRUE",
         //"SRS=EPSG:900913", // 3395?
-        "SRS=EPSG:4326"
-            "WIDTH="+ tileWidth,
-            "HEIGHT="+ tileHeight
+        "SRS=EPSG:4326",
+        "WIDTH="+ tileWidth,
+        "HEIGHT="+ tileHeight
     ];
 
     //add additional parameters
