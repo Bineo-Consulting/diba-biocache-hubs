@@ -140,7 +140,19 @@
                     format: 'image/png',
                     transparent: true,
                     attribution: "Diputación Barcelona"
-                })                           
+                }),
+            "Cartografía oficial del ICC": L.tileLayer.wms("http://geoserveis.icc.cat/icc_mapesbase/wms/service?SRS=EPSG:23031", {
+                    layers: 'mtc50m',
+                    format: 'image/png',
+                    transparent: true,
+                    attribution: "ICC"
+                }),
+            "Límites de los parques naturales de la Generalitat": L.tileLayer.wms("http://sig.gencat.cat/ows/ESPAIS_NATURALS/wms?SRS=EPSG:25031", {
+                    layers: 'ESPAISNATURALS_ENPE',
+                    format: 'image/png',
+                    transparent: true,
+                    attribution: "Generalitat Catalunya"
+                })                         
         },
         baseLayers : {
             "Minimal" : defaultBaseLayer,
