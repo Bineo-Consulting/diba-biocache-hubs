@@ -12,6 +12,7 @@
  */
 
 import au.org.ala.biocache.hubs.ExtendedPluginAwareResourceBundleMessageSource
+import org.apache.catalina.filters.CorsFilter
 
 beans = {
     // Custom message source - This is a duplicate bean def - see original in: src/main/groovy/au/org/ala/biocache/hubs/BiocacheHubsGrailsPlugin.groovy
@@ -22,4 +23,5 @@ beans = {
 //        cacheSeconds = (60 * 60 * 6) // 6 hours
 //        useCodeAsDefaultMessage = false
 //    }
+	corsFilter(CorsFilter)
 }
