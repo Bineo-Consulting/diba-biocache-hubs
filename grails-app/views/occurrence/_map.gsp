@@ -116,49 +116,57 @@
 
             <g:if test="${grailsApplication.config.map.overlay.url}">
                 //example WMS layer
-                "${grailsApplication.config.map.overlay.name?:'overlay'}" : L.tileLayer.wms("${grailsApplication.config.map.overlay.url}", {
+                "${message(code:'map.overlays.occurrences')}" : L.tileLayer.wms("${grailsApplication.config.map.overlay.url}", {
                     layers: 'ALA:ucstodas',
                     format: 'image/png',
                     transparent: true,
                     attribution: "${grailsApplication.config.map.overlay.name?:'overlay'}"
                 }),
             </g:if>
-            "Hàbitats CORINE" :  L.tileLayer.wms("http://sitmun.diba.cat/wms/servlet/XPE50", {
+            "${message(code:'map.overlays.corine')}" :  L.tileLayer.wms("http://sitmun.diba.cat/wms/servlet/XPE50", {
                     layers: 'XPE50_211A',
                     format: 'image/png',
                     transparent: true,
-                    attribution: "Diputación Barcelona"
+                    attribution: "${message(code:'map.overlays.atribution.dipBar')}"
                 }),
-            "Xarxa de Parcs Naturals DiBa" :  L.tileLayer.wms("http://sitmun.diba.cat/wms/servlet/XPE50", {
+            "${message(code:'map.overlays.xarxaParcs')}" :  L.tileLayer.wms("http://sitmun.diba.cat/wms/servlet/XPE50", {
                     layers: 'XPE50_111L',
                     format: 'image/png',
                     transparent: true,
-                    attribution: "Diputación Barcelona"
+                    attribution: "${message(code:'map.overlays.atribution.dipBar')}"
                 }),
-            "Límits plans especials de protecció" :  L.tileLayer.wms("http://sitmun.diba.cat/wms/servlet/XPE50", {
-                    layers: 'XPE50_111A',
-                    format: 'image/png',
-                    transparent: true,
-                    attribution: "Diputación Barcelona"
-                }),
-            "Cartografía oficial del ICC": L.tileLayer.wms("http://geoserveis.icc.cat/icc_mapesbase/wms/service?SRS=EPSG:3857", {
+            "${message(code:'map.overlays.cartoICC')}": L.tileLayer.wms("http://geoserveis.icc.cat/icc_mapesbase/wms/service?SRS=EPSG:3857", {
                     layers: 'orto25m',
                     format: 'image/png',
                     transparent: true,
                     attribution: "ICC"
                 }),
-            "Límites de los parques naturales de la Generalitat": L.tileLayer.wms("https://sig.gencat.cat/ows/ESPAIS_NATURALS/wms?SRS=EPSG:3857", {
+            "${message(code:'map.overlays.limitParksGeneralitat')}": L.tileLayer.wms("https://sig.gencat.cat/ows/ESPAIS_NATURALS/wms?SRS=EPSG:3857", {
                     layers: 'ESPAISNATURALS_ENPE',
                     format: 'image/png',
                     transparent: true,
-                    attribution: "Generalitat Catalunya"
+                    attribution: "${message(code:'map.overlays.atribution.genCat')}"
                 })                         
         },
         baseLayers : {
-            "Minimal" : defaultBaseLayer,
-            "Road" :  new L.Google('ROADMAP'),
-            "Terrain" : new L.Google('TERRAIN'),
-            "Satellite" : new L.Google('HYBRID')
+            "${message(code:'map.baselayer.minimal')}" : defaultBaseLayer,
+            "${message(code:'map.baselayer.road')}" :  new L.Google('ROADMAP'),
+            "${message(code:'map.baselayer.terrain')}" : new L.Google('TERRAIN'),
+            "${message(code:'map.baselayer.hybrid')}" : new L.Google('HYBRID'),
+            "${message(code:'map.overlays.cartoICC')}": L.tileLayer.wms("http://geoserveis.icc.cat/icc_mapesbase/wms/service?SRS=EPSG:3857", {
+                    layers: 'orto25m',
+                    format: 'image/png',
+                    transparent: true,
+                    attribution: "ICC"
+                }),
+            "${message(code:'map.overlays.cartoICC-2')}": L.tileLayer.wms("http://geoserveis.icc.cat/icc_fonstopografic/wms/service?SRS=EPSG:3857&BGCOLOR=0x868686", {
+                    layers: 'mtc5msg',
+                    format: 'image/jpeg',
+                    bgcolor: '0x868686',
+                    version: '1.1.1',
+                    transparent: true,
+                    attribution: "ICC"
+                }),     
         },
         layerControl : null,
         currentLayers : [],
@@ -559,7 +567,7 @@
                 });
             }
         }
-        MAP_VAR.layerControl.addOverlay(layer, 'Occurrences');
+        MAP_VAR.layerControl.addOverlay(layer, '${message(code:'map.overlays.occurrences')}');
         MAP_VAR.map.addLayer(layer);
         MAP_VAR.currentLayers.push(layer);
         return true;
