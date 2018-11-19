@@ -18,7 +18,7 @@
     <meta name="svn.revision" content="${meta(name: 'svn.revision')}"/>
     <meta name="breadcrumb" content="${message(code: "search.heading.list")}"/>
     <meta name="hideBreadcrumb" content=""/>
-    <title><g:message code="home.index.title" default="Search for records"/> | ${hubDisplayName}</title>
+    <title><g:message code="home.index.title" default="Search for records"/></title>
 
     <g:if test="${grailsApplication.config.google.apikey}">
         <script src="https://maps.googleapis.com/maps/api/js?key=${grailsApplication.config.google.apikey}"
@@ -295,7 +295,7 @@
 <body>
     <div id="headingBar" class="heading-bar">
         <h1 style="width:100%;" id="searchHeader"><g:message code="home.index.body.title"
-                                                             default="Search for records in"/> ${raw(hubDisplayName)}</h1>
+                                                             default="Search for records in"/></h1>
     </div>
     <g:if test="${flash.message}">
         <div class="message alert alert-info alert-dismissable">
