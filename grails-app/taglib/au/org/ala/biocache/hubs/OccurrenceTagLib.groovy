@@ -445,7 +445,8 @@ class OccurrenceTagLib {
      */
     def camelCaseToHuman = { attrs ->
         String text = attrs.text
-        text = text.replaceAll(/([a-z])([A-Z])/, '$1 $2').toLowerCase().capitalize()
+        text = text.replaceAll(/([a-z])([A-Z])/, '$1 $2')
+        //.toLowerCase().capitalize()
         out << text.replaceAll("_", " ")
     }
 
@@ -539,7 +540,8 @@ class OccurrenceTagLib {
 
         compareRecord.get(group).each { cr ->
             def key = cr.name
-            def label = message(code:key, default:"") ?: camelCaseToHuman(text: key) ?: StringUtils.capitalize(key)
+            def label = message(code:key, default:"") ?: camelCaseToHuman(text: key) ?: StringUtils(key)
+            //capitalize(key)
 
             // only output fields not already included (by checking fieldsMap Map) && not in excluded list
             if (!fieldsMap.containsKey(key) && !StringUtils.containsIgnoreCase(exclude, key)) {
