@@ -11,7 +11,7 @@
         <g:if test="${record.processed.attribution.dataProviderUid && collectionsWebappContext}">
             ${fieldsMap.put("dataProviderUid", true)}
             ${fieldsMap.put("dataProviderName", true)}
-            <a href="${collectionsWebappContext}/public/show/${record.processed.attribution.dataProviderUid}">
+            <a target="_blank" href="${collectionsWebappContext}/public/show/${record.processed.attribution.dataProviderUid}">
                 ${record.processed.attribution.dataProviderName}
             </a>
         </g:if>
@@ -25,7 +25,7 @@
         <g:if test="${record.raw.attribution.dataResourceUid != null && record.raw.attribution.dataResourceUid && collectionsWebappContext}">
             ${fieldsMap.put("dataResourceUid", true)}
             ${fieldsMap.put("dataResourceName", true)}
-            <a href="${collectionsWebappContext}/public/show/${record.raw.attribution.dataResourceUid}">
+            <a target="_blank" href="${collectionsWebappContext}/public/show/${record.raw.attribution.dataResourceUid}">
                 <g:if test="${record.processed.attribution.dataResourceName}">
                     ${record.processed.attribution.dataResourceName}
                 </g:if>
@@ -44,7 +44,7 @@
         <g:if test="${record.processed.attribution.institutionUid && collectionsWebappContext}">
             ${fieldsMap.put("institutionUid", true)}
             ${fieldsMap.put("institutionName", true)}
-            <a href="${collectionsWebappContext}/public/show/${record.processed.attribution.institutionUid}">
+            <a target="_blank" href="${collectionsWebappContext}/public/show/${record.processed.attribution.institutionUid}">
             ${record.processed.attribution.institutionName}
             </a>
         </g:if>
@@ -62,7 +62,7 @@
 <alatag:occurrenceTableRow annotate="false" section="dataset" fieldNameIsMsgCode="true" fieldCode="collectionCode" fieldName="Collection">
     <g:if test="${record.processed.attribution.collectionUid && collectionsWebappContext}">
         ${fieldsMap.put("collectionUid", true)}
-        <a href="${collectionsWebappContext}/public/show/${record.processed.attribution.collectionUid}">
+        <a target="_blank" href="${collectionsWebappContext}/public/show/${record.processed.attribution.collectionUid}">
     </g:if>
     <g:if test="${record.processed.attribution.collectionName}">
         ${fieldsMap.put("collectionName", true)}
