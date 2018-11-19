@@ -872,6 +872,18 @@ function loadDefaultCharts() {
             var charts = ALA.BiocacheCharts('charts', chartConfig);
         });
     } else {
+        
+        const lang = localStorage.getItem('lang')
+        
+        Object.keys(chartConfig.charts).map(k => {
+            
+            const chart_title = chartConfig.charts[k]['title_' + (lang || 'ca')]
+            chartConfig.charts[k].title = chart_title || chartConfig.charts[k].title
+
+            const chart_empty = chartConfig.charts[k]['emptyValueMsg_' + (lang || 'ca')]
+            chartConfig.charts[k].emptyValueMsg = chart_empty || chartConfig.charts[k].emptyValueMsg
+        })
+
         var charts = ALA.BiocacheCharts('charts', chartConfig);
     }
 }
