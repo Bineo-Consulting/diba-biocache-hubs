@@ -45,10 +45,10 @@
     </div>
 
     <div class="form-group">
-        <label class="col-md-2 control-label" for="institution_collection">We are inside!!!<g:message code="advancedsearch.table05col01.title" default="Institution or Collection"/> Hola estamos dentro</label>
+        <label class="col-md-2 control-label" for="institution_collection"><g:message code="advancedsearch.table05col01.title" default="Institution or Collection"/></label>
         <div class="col-md-6">
             <select class="institution_uid collection_uid form-control" name="institution_collection" id="institution_collection">
-                <option value="">Hola estamos dentro<g:message code="advancedsearch.table05col01.option01.label" default="-- select an institution or collection --"/></option>
+                <option value=""><g:message code="advancedsearch.table05col01.option01.label" default="-- select an institution or collection --"/></option>
                 <g:each var="inst" in="${request.getAttribute("institution_uid")}">
                     <optgroup label="${inst.value}">
                         <option value="${inst.key}"><g:message code="advancedsearch.table05col01.option02.label" default="All records from"/> ${inst.value}</option>
@@ -224,7 +224,7 @@
 
     <input type="submit" value=<g:message code="advancedsearch.button.submit" default="Search"/> class="btn btn-primary" />
     &nbsp;&nbsp;
-    <input type="reset" value="Clear all" id="clearAll" class="btn btn-default" onclick="$('input#solrQuery').val(''); $('input.clear_taxon').click(); return true;"/>
+    <input type="reset" value=<g:message code="advancedsearch.button.clearAll" default="Clear All"/>id="clearAll" class="btn btn-default" onclick="$('input#solrQuery').val(''); $('input.clear_taxon').click(); return true;"/>
 </form>
 <asset:script type="text/javascript">
     $(document).ready(function() {
