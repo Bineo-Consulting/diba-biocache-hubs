@@ -26,6 +26,7 @@ import org.grails.config.PropertySourcesConfig
  *
  */
 class BiocacheHubsGrailsPlugin extends Plugin {
+
     // the version or versions of Grails the plugin is designed for
     def grailsVersion = "3.2.11 > *"
     // resources that are excluded from plugin packaging
@@ -108,15 +109,23 @@ from the ALA biocache-service app (no local DB is required for this app).
 
             // check custom resources cache dir for permissions
             if (config.grails.resources.work.dir) {
-                if (new File(config.grails.resources.work.dir).isDirectory()) {
+
+                def resourceWorkDir = config.grails.resources.work.dir
+                def file = new File(resourceWorkDir)
+
+                if (!file.exists()){
+                    resourceWorkDir = grailsApplication.mainContext.getClassLoader().getResource(config.grails.resources.work.dir).file
+                }
+
+                if (new File(resourceWorkDir).isDirectory()) {
                     // cache dir exists - check if its writable
-                    if (!new File(config.grails.resources.work.dir).canWrite()) {
+                    if (!new File(resourceWorkDir).canWrite()) {
                         //grailsConsole.error "grails.resources.work.dir (${config.grails.resources.work.dir}) is NOT WRITABLE, please fix this!"
                         println "grails.resources.work.dir (${config.grails.resources.work.dir}) is NOT WRITABLE, please fix this!"
                     }
                 } else {
                     // check we can create the directory
-                    if (!new File(config.grails.resources.work.dir).mkdir()) {
+                    if (!new File(resourceWorkDir).mkdir()) {
                         println "grails.resources.work.dir (${config.grails.resources.work.dir}) cannot be created, please fix this!"
                     }
                 }
