@@ -40,6 +40,15 @@ configurations.all {
 boolean inplace = false
 // Inplace plugins ala-charts-plugin and images-client-plugin are defined in ala-hub configuration
 
+compileGroovy {
+    groovyOptions.forkOptions.jvmArgs = ['-noverify']
+}
+ test {
+    jvmArgs '-noverify'
+}
+
+applicationDefaultJvmArgs = ["-noverify"]
+
 dependencies {
     def noCache = {
         exclude group: 'org.grails.plugins', module: 'cache'
@@ -51,6 +60,7 @@ dependencies {
     compile "org.grails:grails-core"
     compile "org.springframework.boot:spring-boot-starter-actuator"
     compile "org.springframework.boot:spring-boot-starter-tomcat"
+    compile "org.apache.tomcat.embed:tomcat-embed-core:8.5.31"
     compile "org.grails:grails-dependencies"
     compile "org.grails:grails-web-boot"
     compile "org.grails.plugins:cache"
